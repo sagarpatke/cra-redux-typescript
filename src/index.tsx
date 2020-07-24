@@ -1,12 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
+import Board from './Board';
+import { createStore } from 'redux';
+import TicTacToeApp from './TicTacToeApp';
+import { Provider } from 'react-redux';
+
+const store = createStore(TicTacToeApp);
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <Board />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
